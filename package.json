@@ -1,6 +1,6 @@
 {
   "name": "ammer",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "DOM-Event-Manager, leveraging the powers of object-getters & the Proxy-object",
   "repository": {
       "type": "git",
