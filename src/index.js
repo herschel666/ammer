@@ -1,8 +1,6 @@
 
 'use strict';
 
-import domEvents from '@f/dom-events';
-
 /** @type {Number} */
 const LISTENER_ELEMENT = 0;
 
@@ -89,21 +87,16 @@ const ammerObject = {};
 
 /** @type {Object} */
 const proxyHandler = {
-    get: function (obj, type) {
-        if (domEvents.indexOf(type) === -1) {
-            throw Error(`"${type} is not a valid DOM-event.`);
+    get: (obj, type) => (element, callback) => {
+        if (type === 'on' && !isFunction(callback)) {
+            throw Error(`Please pass in a callback-function to the ${type}-method`);
         }
-        return (element, callback) => {
-            if (type === 'on' && !isFunction(callback)) {
-                throw Error(`Please pass in a callback-function to the ${type}-method`);
-            }
-            const elements = element instanceof HTMLCollection ?
-                slice.call(element) :
-                element instanceof HTMLElement ?
-                [element] :
-                [];
-            elements.forEach(elem => ammerPrivate[ammerPrivate._mode](elem, type, callback));
-        };
+        const elements = element instanceof HTMLCollection ?
+            slice.call(element) :
+            element instanceof HTMLElement ?
+            [element] :
+            [];
+        elements.forEach(elem => ammerPrivate[ammerPrivate._mode](elem, type, callback));
     }
 };
 

@@ -17,9 +17,6 @@
   ],
   "author": "Emanuel Kluge",
   "license": "Beerware",
-  "dependencies": {
-    "@f/dom-events": "^1.0.3"
-  },
   "devDependencies": {
     "babel": "^6.3.26",
     "babel-core": "^6.4.0",

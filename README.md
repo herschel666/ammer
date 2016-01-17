@@ -63,10 +63,6 @@ amr.off.mouseenter(document.querySelector('#hover-me'), onMouseEnter);
 
 All other `mouseenter`-bindings to this element aren't affected.
 
-## Available events
-
-All event-names specified in [@f/dom-events](https://npm.im/@f/dom-events) are available as methods exposed an the `ammer.on`- and `ammer.off`-methods.
-
 ## How does it work
 
 The `on`- and `off`-methods of the `ammer`-object set the current mode (`addListener` or `removeListener`) and return a `Proxy`-instance, that handles all the `get`-calls. Thus it's possible to call all the event-name-methods, though they aren't explicitly defined.
